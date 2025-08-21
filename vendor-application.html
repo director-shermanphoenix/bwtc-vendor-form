@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BWTC Conference Wellness Marketplace Vendor Application</title>
+    <!-- Use Tailwind CSS for modern, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font import for a cleaner look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .container {
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8 flex items-center justify-center min-h-screen">
+    <div class="container bg-white rounded-3xl shadow-xl p-6 sm:p-10 border border-gray-200">
+        <!-- Application Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">Vendor Application</h1>
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-700">Better Ways to Cope Conference</h2>
+            <p class="text-sm text-gray-500 mt-1">Curated by Sherman Phoenix Wellness Marketplace</p>
+        </header>
+
+        <!-- Important Dates and Information -->
+        <div class="bg-indigo-50 p-6 rounded-2xl shadow-inner mb-8 border border-indigo-200">
+            <h3 class="text-lg font-bold text-indigo-800 mb-4">Important Information</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="text-center">
+                    <p class="text-sm font-semibold text-gray-600">Application Deadline</p>
+                    <p class="text-base font-bold text-indigo-700">September 12</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-sm font-semibold text-gray-600">Chosen Vendors Contacted</p>
+                    <p class="text-base font-bold text-indigo-700">September 15</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-sm font-semibold text-gray-600">Fee Payment Deadline</p>
+                    <p class="text-base font-bold text-indigo-700">October 1</p>
+                </div>
+            </div>
+            <p class="text-sm text-center text-gray-600 mt-4">Vending fee is $50 per day.</p>
+        </div>
+        
+        <!-- Application Form -->
+        <form id="vendor-form" class="space-y-6">
+            <!-- Vendor Information Section -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                    <label for="vendor-name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                    <input type="text" id="vendor-name" name="vendor-name" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200 shadow-sm">
+                </div>
+                <div>
+                    <label for="business-name" class="block text-sm font-medium text-gray-700 mb-1">Business Name</label>
+                    <input type="text" id="business-name" name="business-name" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200 shadow-sm">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200 shadow-sm">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200 shadow-sm">
+                </div>
+            </div>
+            
+            <div>
+                <label for="website" class="block text-sm font-medium text-gray-700 mb-1">Website / Social Media Link (Optional)</label>
+                <input type="url" id="website" name="website" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200 shadow-sm">
+            </div>
+
+            <div>
+                <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Tell us about your products or services</label>
+                <textarea id="description" name="description" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200 shadow-sm"></textarea>
+            </div>
+
+            <!-- Vending Day Selection -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Select Vending Days</label>
+                <div class="flex items-center space-x-6">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="day-10" name="day-10" value="50" class="h-5 w-5 text-indigo-600 rounded-md border-gray-300 focus:ring-indigo-500" data-fee="50">
+                        <label for="day-10" class="ml-2 text-sm text-gray-700">Friday, October 10</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="day-12" name="day-12" value="50" class="h-5 w-5 text-indigo-600 rounded-md border-gray-300 focus:ring-indigo-500" data-fee="50">
+                        <label for="day-12" class="ml-2 text-sm text-gray-700">Saturday, October 12</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Fee Display -->
+            <div class="mt-4">
+                <p class="text-sm font-semibold text-gray-700">Total Vending Fee:</p>
+                <p id="total-fee" class="text-xl font-bold text-indigo-600 mt-1">$0.00</p>
+            </div>
+
+            <!-- Submission Button -->
+            <button type="submit" class="w-full flex justify-center py-3 px-6 border border-transparent rounded-xl shadow-lg text-lg font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300">
+                Submit Application
+            </button>
+        </form>
+
+        <!-- Submission Message -->
+        <div id="success-message" class="hidden mt-6 p-4 bg-green-100 text-green-700 rounded-xl border border-green-300" role="alert">
+            <p class="font-bold">Application Submitted!</p>
+            <p class="mt-1 text-sm">Your application has been successfully sent. We will contact you by September 15th if you are selected.</p>
+        </div>
+    </div>
+
+    <script>
+        // Set your Google Apps Script Web App URL here!
+        // IMPORTANT: You must replace this placeholder URL with your own after following the setup steps.
+        const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwxgPqO00HaxnoRh8iX_A91TaV26hNcSPLasmwBJ5hQzCrdwveubxepUxb51fF-veN4/exec';
+
+        // JavaScript for handling the fee calculation and form submission
+        const form = document.getElementById('vendor-form');
+        const dayCheckboxes = form.querySelectorAll('input[type="checkbox"]');
+        const totalFeeDisplay = document.getElementById('total-fee');
+        const successMessage = document.getElementById('success-message');
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        /**
+         * Calculates and updates the total vending fee based on selected days.
+         */
+        function updateFee() {
+            let totalFee = 0;
+            dayCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    // Use a data attribute for the fee to keep it clean
+                    totalFee += parseInt(checkbox.getAttribute('data-fee'), 10);
+                }
+            });
+            // Update the display with the new total
+            totalFeeDisplay.textContent = `$${totalFee}.00`;
+        }
+
+        // Add event listeners to each checkbox to trigger the fee update
+        dayCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateFee);
+        });
+
+        // Handle form submission
+        form.addEventListener('submit', async (event) => {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+            
+            // Disable the button to prevent multiple submissions
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+
+            // Check if the URL is set
+            if (GOOGLE_APPS_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                alert('Please replace the placeholder URL in the script with your Google Apps Script URL.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'Submit Application';
+                return;
+            }
+
+            // Collect form data
+            const formData = new FormData(form);
+            const data = {
+                vendorName: formData.get('vendor-name'),
+                businessName: formData.get('business-name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                website: formData.get('website'),
+                description: formData.get('description'),
+                // Get selected days and fees
+                selectedDays: Array.from(dayCheckboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.labels[0].textContent),
+                totalFee: totalFeeDisplay.textContent
+            };
+
+            // Send data to Google Apps Script
+            try {
+                const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Required for Google Apps Script
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+                
+                // The 'no-cors' mode means we can't check the response status,
+                // but the request should be sent successfully.
+                
+                // Hide the form and show the success message
+                form.style.display = 'none';
+                successMessage.classList.remove('hidden');
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('There was an error submitting your form. Please try again.');
+                
+                // Re-enable the button on error
+                submitButton.disabled = false;
+                submitButton.textContent = 'Submit Application';
+            }
+        });
+    </script>
+</body>
+</html>
+
